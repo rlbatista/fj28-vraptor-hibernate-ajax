@@ -5,14 +5,19 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
-@Entity
+@Entity(name="tbProduto")
 public class Produto {
 	@Id @GeneratedValue
-	@Column(name="id_Produto")
+	@Column(name="idProduto")
 	private Long id;
 	
+	@Column(name="nmProduto", nullable=false, length=30,unique=true)
 	private String nome;
+	
+	@Column(name="dsProduto", nullable=false, length=100)
 	private String descricao;
+	
+	@Column(name="prProduto", nullable=false)
 	private Double preco;
 
 	public Long getId() {
@@ -70,5 +75,16 @@ public class Produto {
 		} else if (!id.equals(other.id))
 			return false;
 		return true;
+	}
+	
+	@Override
+	public String toString() {
+		StringBuilder str = new StringBuilder();
+		str.append("[ID=").append(this.id)
+		   .append(", NOME=").append(this.nome)
+		   .append(", DESCRICAO=").append(this.descricao)
+		   .append(", PRECO=").append(this.preco)
+		   .append("]");
+		return str.toString();
 	}
 }
