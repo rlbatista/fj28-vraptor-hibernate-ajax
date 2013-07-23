@@ -15,13 +15,19 @@ public class AdicaoDeProduto {
 		SessionFactory factory = cfg.buildSessionFactory();
 		Session session = factory.openSession();
 		
-		Produto produto = new Produto();
-		produto.setNome("Prateleira");
-		produto.setDescricao("Uma prateleira para colocar livros");
-		produto.setPreco(35.90);
+		Produto p1 = new Produto();
+		p1.setNome("Mesa");
+		p1.setDescricao("Mesa de centro");
+		p1.setPreco(28.95);
+		
+		Produto p2 = new Produto();
+		p2.setNome("Cadeira");
+		p2.setDescricao("Cadeira tipo executivo a gás");
+		p2.setPreco(115.84);
 		
 		Transaction tx = session.beginTransaction();
-		session.save(produto);
+		session.save(p1);
+		session.save(p2);
 		tx.commit();
 	}
 }
