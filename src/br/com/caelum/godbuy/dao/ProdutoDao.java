@@ -1,11 +1,15 @@
 package br.com.caelum.godbuy.dao;
 
+import java.util.List;
+
 import org.hibernate.Transaction;
 import org.hibernate.classic.Session;
 
 import br.com.caelum.godbuy.infra.CriadorDeSession;
 import br.com.caelum.godbuy.modelo.Produto;
+import br.com.caelum.vraptor.ioc.Component;
 
+@Component
 public class ProdutoDao {
 
 	private final Session session;	
@@ -14,27 +18,31 @@ public class ProdutoDao {
 		this.session = CriadorDeSession.getSession();
 	}
 
-	public void salvar(Produto produto) {
+	public void salva(Produto produto) {
 		Transaction tx = session.beginTransaction();
 		session.save(produto);
 		tx.commit();
 	}
 
-	public Produto buscaPorId(Long id) {
-		Produto protudo = (Produto) session.load(Produto.class, id);
-		return protudo;
-	}
-
-	public void atualizar(Produto produto) {
+	public void atualiza(Produto produto) {
 		Transaction tx = session.beginTransaction();
 		session.update(produto);
 		tx.commit();
 	}
-
-	public void remover(Produto produto) {
+	
+	public void remove(Produto produto) {
 		Transaction tx = session.beginTransaction();
 		session.delete(produto);
 		tx.commit();		
 	}
-
+	
+	public Produto buscaPorId(Long id) {
+		Produto protudo = (Produto) session.load(Produto.class, id);
+		return protudo;
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Produto> listaTudo(){
+		return session.createCriteria(Produto.class).list();
+	}
 }

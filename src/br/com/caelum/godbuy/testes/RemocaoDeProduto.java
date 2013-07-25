@@ -9,6 +9,6 @@ public class RemocaoDeProduto {
 		
 		Produto p = produtoDao.buscaPorId(3L);
 		
-		produtoDao.remover(p);
+		produtoDao.remove(p);
 	}
 }

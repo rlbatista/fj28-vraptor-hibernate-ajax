@@ -11,6 +11,6 @@ public class AlteracaoDeProduto {
 		
 		p.setPreco(47.29);
 		
-		produtoDao.atualizar(p);
+		produtoDao.atualiza(p);
 	}
 }

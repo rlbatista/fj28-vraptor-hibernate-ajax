@@ -7,7 +7,7 @@ public class AdicaoDeProduto {
 	public static void main(String[] args) {
 		Produto p1 = criaProduto();
 		
-		new ProdutoDao().salvar(p1);
+		new ProdutoDao().salva(p1);
 	}
 
 	private static Produto criaProduto() {
