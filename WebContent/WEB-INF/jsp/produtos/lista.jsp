@@ -13,6 +13,7 @@
 				<th>Nome</th>
 				<th>Descrição</th>
 				<th>Preço</th>
+				<th colspan="2">Edição</th>
 			</tr>
 		</thead>
 		
@@ -22,6 +23,8 @@
 					<td>${produto.nome}</td>
 					<td>${produto.descricao}</td>
 					<td>${produto.preco}</td>
+					<td><a href="edita?id=${produto.id}">Editar</a></td>
+					<td><a href="remove?id=${produto.id}">Remove</a></td>
 				</tr>
 			</c:forEach>
 		</tbody>

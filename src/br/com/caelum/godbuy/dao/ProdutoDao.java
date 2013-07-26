@@ -37,8 +37,8 @@ public class ProdutoDao {
 	}
 	
 	public Produto buscaPorId(Long id) {
-		Produto protudo = (Produto) session.load(Produto.class, id);
-		return protudo;
+		Produto produto = (Produto) session.load(Produto.class, id);
+		return produto;
 	}
 	
 	@SuppressWarnings("unchecked")
